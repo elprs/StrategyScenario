@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StrategyPatternSample;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,52 @@ using System.Threading.Tasks;
 
 namespace StrategyAssignment
 {
+    /// <summary>
+
+    /// Entry point into console application.
+
+    /// </summary>
+    
     class Program
     {
         static void Main(string[] args)
         {
+            // TODO add greek currency +++++++++++++++++++++++++++++++++++
+
+
             Eshop myEShop = new Eshop();
-            Console.WriteLine("Hello, our recommentation is this t-shirt");
+
+            // Suggest a T-shirt to the customer
+
+            Console.WriteLine("Hello, let us recomment you this beautiful t-shirt. Its details are:\n fabric : {0} , size : {1}, color : {2}", Fabric.CASHMERE.ToString().ToLower(), Size.L.ToString().ToLower(), Color.BLUE.ToString().ToLower());
+
+
             TShirt sampleTshirt = new TShirt(Color.BLUE, Size.L, Fabric.CASHMERE);
-            Console.Write($"It costs { sampleTshirt.Price }");
+            
+            // Calculating the price of the suggested item
+
+            TShirt.CalculatingTotalTshirtCost(sampleTshirt);
+            Console.WriteLine($"The total cost is {sampleTshirt.Price} Euro. Would you like to buy it now?");
+            Console.WriteLine("------------");
+            Console.WriteLine("| SHOP NOW |");
+            Console.WriteLine("------------");
+
+            Console.WriteLine("Let's proceed to the payment. ");
+
+            Console.WriteLine("Choose your prefered payment method");
+
+
+            //TODO Pay Shirt ... 3 pay options ++++++++++++++++++++++++ 
+
+
+
+            // Wait for user
+
+            Console.ReadKey();
+
+
+
+          
 
             //Console.WriteLine("Please, create your own t-shirt");
             //TShirt customerTshirt;
@@ -21,39 +60,15 @@ namespace StrategyAssignment
             //string sizeChoice;  // add nullable option ++
             //sizeChoice = Console.ReadLine();
 
-            //GetSize(customerTshirt, sizeChoice);
-            //return;
+          
 
             //myEShop.PayTShirt(customerTshirt);
             Console.Read();
         }
 
-        //private static void GetSize(TShirt customerTshirt, string sizeChoice)
-        //{
-        //    switch (sizeChoice)
-        //    {
-        //        case 1:
-        //            customerTshirt.Size = Size.XS;
-        //            break; 
-        //        case 2:customerTshirt.Size = Size.S;
-        //            break; 
-        //        case 4:customerTshirt.Size = Size.L;
-        //            break; 
-        //        case 5:customerTshirt.Size = Size.XL;
-        //            break; 
-        //        case 6:customerTshirt.Size = Size.XXL;
-        //            break; 
-        //        case 7:customerTshirt.Size = Size.XXXL;
-        //            break;
 
-        //        default:  customerTshirt.Size = Size.M;:
-        //            break; 
-
-        //    }
-        //}
     }
 
 
 
-    
 }

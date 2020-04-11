@@ -2,16 +2,22 @@
 
 namespace StrategyAssignment
 {
-    abstract class Variation
-    {
-        public abstract decimal Cost(TShirt tshirt);
-    }
+    //The variaton abstract class
+
+    //Could be done witn Generics to include more products: 
 
     //abstract class Variation<T>
     //{
-    //    public abstract decimal Cost<T>(T item);
+    //    public abstract decimal Cost(T item);
     //}
 
+      
+    abstract class Variation
+    {
+        public abstract decimal Cost(TShirt item);
+    }
+
+    //Color variation class
     class ColorVariation : Variation
     {
         public override decimal Cost(TShirt tshirt)
@@ -33,12 +39,16 @@ namespace StrategyAssignment
 
             return tshirt.Price;
         }
+
     }
+
+
+    //Size variation class
 
     class SizeVariation : Variation
     {
         private static Dictionary<Size, decimal> _sizeCosts;
-       
+
 
         static SizeVariation()
         {
@@ -61,6 +71,8 @@ namespace StrategyAssignment
         }
     }
 
+
+    //Fabric variation class
     class FabricVariation : Variation
     {
         private static Dictionary<Fabric, decimal> _fabricVariations;
@@ -85,4 +97,33 @@ namespace StrategyAssignment
             return tshirt.Price;
         }
     }
+
+
+    // Calculates the variation cost
+    class VariationCost
+
+    {
+        private Variation _variation;
+
+        // Constructor
+
+        public VariationCost(Variation variation)
+        {
+            this._variation = variation;
+        }
+
+        public void CalculateCostOf(TShirt tshirt)
+        {
+            _variation.Cost(tshirt);
+        }
+
+
+    }
+
+
+   
+
+
+
+
 }

@@ -8,31 +8,9 @@ using System.Threading.Tasks;
 
 namespace StrategyPatternSample
 {
-    class EShopBasket
-    {
-        private PaymentMethod _paymentMethod;
-        private decimal _dueAmount;
-
-        public void SelectPaymentMethod(PaymentMethod paymentMethod)
-        {
-            _paymentMethod = paymentMethod;
-        }
-
-        public void SetDueAmount(decimal amount)
-        {
-            _dueAmount = amount;
-        }
-
-        public bool Pay()
-        {
-            return _paymentMethod.Pay(_dueAmount);
-        }
-    }
 
     class Eshop
     {
-
-
         private PaymentMethod _paymentMethod;
 
         private IEnumerable<Variation> _variations;
@@ -58,7 +36,7 @@ namespace StrategyPatternSample
             var amount = 32.32m;
             basket.SetDueAmount(amount);
 
-            Console.Write("How would you like to pay? 1) CC, 2) PayPal, 3) ApplePay : ");
+            Console.Write("How would you like to pay? 1) CC, 2) BankTransfer, 3) Cash : ");
             var input = int.Parse(Console.ReadLine().Trim());
             bool success = PayBasket(basket, input);
 
@@ -92,19 +70,19 @@ namespace StrategyPatternSample
             switch (input)
             {
                 case 1:
-                    basket.SelectPaymentMethod(new CreditCard());
+                    basket.SelectPaymentMethod(new CreditDebitCard());
                     break;
 
                 case 2:
-                    basket.SelectPaymentMethod(new PayPal());
+                    basket.SelectPaymentMethod(new BankTransfer());
                     break;
 
                 case 3:
-                    basket.SelectPaymentMethod(new ApplePay());
+                    basket.SelectPaymentMethod(new Cash());
                     break;
 
                 default:
-                    basket.SelectPaymentMethod(new CreditCard());
+                    basket.SelectPaymentMethod(new Cash());
                     break;
 
             }
@@ -123,7 +101,7 @@ namespace StrategyPatternSample
 
         public void DeliverOrder(string address, EShopBasket basket)
         {
-
+            //complete this ++
         }
     }
 

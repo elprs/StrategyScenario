@@ -22,6 +22,7 @@ namespace StrategyAssignment
         }
     }
 
+
     enum Color
     {
         RED,

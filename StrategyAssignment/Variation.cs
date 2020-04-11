@@ -38,6 +38,7 @@ namespace StrategyAssignment
     class SizeVariation : Variation
     {
         private static Dictionary<Size, decimal> _sizeCosts;
+       
 
         static SizeVariation()
         {

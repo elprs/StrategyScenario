@@ -37,6 +37,7 @@ namespace StrategyAssignment
 
 
             //Proceed to payment
+            Console.WriteLine("I just made a change!");
 
             Console.WriteLine($"The total cost is {amount} Euro. Would you like to buy it now?");
             Console.WriteLine("------------");

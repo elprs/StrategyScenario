@@ -1,18 +1,18 @@
-﻿
-
-
-
-using StrategyAssignment;
+﻿using StrategyAssignment;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StrategyPatternSample
 {
-    class Eshop
+    public static class Eshop
     {
+        //Find rhe cost, communicate all the tshirt and process details to the user
+        public static decimal CostAndCommunication()
+        {
+            decimal amount = TotalTshirtCost.CommunicateWithCustomerAboutTshirt();
+            ProceedToPaymentUserMessage(amount);
+            return amount;
+        }
+
         public static void EShopDemo(decimal amount)
         {
             
@@ -32,13 +32,28 @@ namespace StrategyPatternSample
             var simpleEshop = new SimpleEshop();
             var success = simpleEshop.PayAndSendOrder(basket, paymentType, address, carrierType);
 
-            Console.Write("Is the address correct: ");
+            Console.Write("Is the address correct?  ");
             Console.WriteLine(success);
-            Console.WriteLine("Wou will soon receive a comfirmation email! Thank you for shopping with us!"
-                );
+            Console.WriteLine("Our next feature: Wou will soon receive a comfirmation email! Thank you for shopping with us!");
             Console.WriteLine("Please press enter");
          
             Console.Read();
+        }
+
+        private static void ProceedToPaymentUserMessage(decimal amount)
+        {
+            //Proceed to payment
+
+            Console.WriteLine($"The total cost is {amount} Euro. Would you like to buy it now?");
+            Console.WriteLine("------------");
+            Console.WriteLine("| SHOP NOW |");
+            Console.WriteLine("------------");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("We are proceeding to payment. ");
+            Console.WriteLine();
+            Console.WriteLine("Choose your prefered payment method.");
+            Console.WriteLine();
         }
     }
 

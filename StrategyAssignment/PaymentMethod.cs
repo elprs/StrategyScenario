@@ -9,11 +9,13 @@ namespace StrategyPatternSample
     }
 
     //Payment method 1 : Credit/debit card class
+
     class CreditDebitCard : PaymentMethod
     {
         public override bool Pay(decimal amount)
         {
             //Adding requirements' logic
+
             if (amount <= 0m || amount > 100000)
             {
                 Console.WriteLine("Paying {0:c} using Credit Card declined", amount);
@@ -28,6 +30,7 @@ namespace StrategyPatternSample
     }
 
     //Payment method 2 : BankTransfer class
+
     class BankTransfer : PaymentMethod
     {
         public override bool Pay(decimal amount)
@@ -46,6 +49,7 @@ namespace StrategyPatternSample
     }
 
     //Payment method 3 : Cash class
+
     class Cash : PaymentMethod
     {
         public override bool Pay(decimal amount)

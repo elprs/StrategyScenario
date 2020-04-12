@@ -4,13 +4,17 @@ namespace StrategyAssignment
 {
     class TotalTshirtCost
     {
+        //Letting the user know about the tshirt details
+
         public static decimal CommunicateWithCustomerAboutTshirt()
         {
             // Suppose a customer added a T-shirt to his wish list
+
             TShirt sampleTshirt = new TShirt(Color.BLUE, Size.L, Fabric.CASHMERE);
             ShowCustomerTshirtVariationDetails(sampleTshirt);
 
             //calculate the price of the tshirt
+
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write("An authorized user sees these details: ");
             var amount = TotalTshirtCost.CalculateCost(sampleTshirt);
@@ -19,7 +23,8 @@ namespace StrategyAssignment
             return amount;
         }
 
-        //Communicate the details of the tshirt on the console
+        //Print tshirt message on the console
+
         private static void ShowCustomerTshirtVariationDetails(TShirt sampleTshirt)
         {
             Console.WriteLine();
@@ -28,9 +33,12 @@ namespace StrategyAssignment
             Console.WriteLine();
         }
 
-        //Calculating the total cost of a T-shirt
-        //Questions for you, Teacher, and also to myself: Is it ok for this method to exist here? Where would you place it as a "best practise"? 
+
+        //Questions for you, Teacher, and also to myself: Is it ok for the CalculateCost method to exist here? 
+        //Where would you place it as a "best practise"? 
         //How can this method be written in order to DRY? With a foreach, perhaps? If so, how could i bring all the variations in a list?
+
+        //Calculating the total cost of a T-shirt
 
         private static decimal CalculateCost(TShirt tshirt)
         {

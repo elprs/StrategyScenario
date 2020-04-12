@@ -7,6 +7,7 @@ namespace StrategyPatternSample
     public static class Eshop
     {
         //Find rhe cost, communicate all the tshirt and process details to the user
+
         public static decimal CostAndCommunication()
         {
             decimal amount = TotalTshirtCost.CommunicateWithCustomerAboutTshirt();
@@ -42,7 +43,9 @@ namespace StrategyPatternSample
 
         //TODO refactor and generalize the below validations:  
 
+
         //Validation for the payment method
+
         private static void ValidPaymentTypeCheck(int paymentType)
         {
             if (!(paymentType > 3 || paymentType < 0))
@@ -58,6 +61,7 @@ namespace StrategyPatternSample
         }
 
         //Validation for the carrier method
+
         private static void ValidCarrierTypeCheck(CarrierType carrierType)
         {
             if (!((int)carrierType > 4 || carrierType < 0))
@@ -73,6 +77,7 @@ namespace StrategyPatternSample
         }
 
         //Try catch for the payment method
+
         private static int ValidatingNumberTypeInput()
         {
             bool success = false;
@@ -120,6 +125,7 @@ namespace StrategyPatternSample
         }
 
         //Messages to user
+
         private static void ConfirmingAddress(EShopBasket basket, int paymentType, CarrierType carrierType, string address)
         {
             var simpleEshop = new SimpleEshop();
@@ -158,6 +164,7 @@ namespace StrategyPatternSample
     }
 
     // Facade
+
     class SimpleEshop
     {
         public bool PayAndSendOrder(EShopBasket basket, int paymentMethod, string address, CarrierType carrierType)

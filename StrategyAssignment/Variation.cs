@@ -19,6 +19,7 @@ namespace StrategyAssignment
     }
 
     //Color variation class
+
     class ColorVariation : Variation
     {
         public override decimal Cost(TShirt tshirt)
@@ -71,6 +72,7 @@ namespace StrategyAssignment
     }
 
     //Fabric variation class
+
     class FabricVariation : Variation
     {
         private static Dictionary<Fabric, decimal> _fabricVariations;
@@ -97,6 +99,7 @@ namespace StrategyAssignment
     }
 
     //The variation Cost class
+
     class VariationCost
 
     {
@@ -110,6 +113,7 @@ namespace StrategyAssignment
         }
 
         // Calculates the variation cost
+
         public void CalculateCostVariation(TShirt tshirt)
         {
             _variation.Cost(tshirt);

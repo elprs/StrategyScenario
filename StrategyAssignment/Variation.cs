@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace StrategyAssignment
 {
+    //Note to myself:
     //The variaton abstract class
 
     //Could be done witn Generics to include more products: 
@@ -12,7 +12,7 @@ namespace StrategyAssignment
     //    public abstract decimal Cost(T item);
     //}
 
-      
+
     abstract class Variation
     {
         public abstract decimal Cost(TShirt item);
@@ -40,9 +40,7 @@ namespace StrategyAssignment
 
             return tshirt.Price;
         }
-
     }
-
 
     //Size variation class
 
@@ -72,7 +70,6 @@ namespace StrategyAssignment
         }
     }
 
-
     //Fabric variation class
     class FabricVariation : Variation
     {
@@ -99,7 +96,6 @@ namespace StrategyAssignment
         }
     }
 
-
     //The variation Cost class
     class VariationCost
 
@@ -118,11 +114,5 @@ namespace StrategyAssignment
         {
             _variation.Cost(tshirt);
         }
-
-
     }
-
-
-
-
 }

@@ -65,7 +65,6 @@ namespace StrategyPatternSample
 
     //The 'PaymentMethodProceeds' class
 
-
     class PaymentMethodPay
 
     {

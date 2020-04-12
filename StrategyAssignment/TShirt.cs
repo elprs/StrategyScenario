@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StrategyAssignment
+﻿namespace StrategyAssignment
 {
-    class TShirt // : Product<TShirt> me abstract : public static decimal CalculateCost(TShirt tshirt) ==== idea!!!!
+    class TShirt // Note to myself: Product<TShirt> with use of abstract and generics : public static decimal CalculateCost(TShirt tshirt) 
     {
         public readonly Color Color;
         public readonly Size Size;
@@ -20,11 +14,7 @@ namespace StrategyAssignment
             Size = size;
             Fabric = fabric;
         }
-
-     
-
     }
-
 
     enum Color
     {
@@ -58,6 +48,4 @@ namespace StrategyAssignment
         CASHMERE,
         SILK
     }
-
-
 }

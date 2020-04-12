@@ -1,5 +1,6 @@
 ﻿using StrategyAssignment;
 using System;
+using System.Threading;
 
 namespace StrategyPatternSample
 {
@@ -16,27 +17,127 @@ namespace StrategyPatternSample
         public static void EShopDemo(decimal amount)
         {
             var basket = new EShopBasket();
-            
+
             basket.SetDueAmount(amount);
 
-            Console.Write("How would you like to pay? 1) Credit/Debit card, 2) Bank Transfer, 3) Cash : ");
-            var paymentType = int.Parse(Console.ReadLine().Trim());
+            Console.WriteLine("How would you like to pay? \n1) Credit/Debit card, \n2) Bank Transfer, \n3) Cash \nDefault: Cash ");
+            var paymentType = 10;
+            paymentType = ValidatingNumberTypeInput();
+            ValidPaymentTypeCheck(paymentType);
 
-            Console.Write("Please select the shipment method : 1=PostOffice, 2=Courier, 3=Own, 4=Pickup:");
-            var carrierType = (CarrierType)int.Parse(Console.ReadLine().Trim());
 
-            Console.Write("Please give your address:");
+            Console.WriteLine("Please select the shipment method : 1) PostOffice, 2) Courier, 3) Own, 4) Pickup:");
+            var carrierType = (CarrierType)10;
+            carrierType = (CarrierType)ValidatingNumberTypeInput();
+            ValidCarrierTypeCheck(carrierType);
+       
+            Console.WriteLine();
+           
+            Console.WriteLine("Please give your address:");
             var address = Console.ReadLine().Trim();
+            Console.WriteLine();
 
+            ConfirmingAddress(basket, paymentType, carrierType, address);
+        }
+
+        //TODO refactor and generalize the below validations:  
+
+        //Validation for the payment method
+        private static void ValidPaymentTypeCheck(int paymentType)
+        {
+            if (!(paymentType > 3 || paymentType < 0))
+            {
+                Console.WriteLine($"The payment method {paymentType} was chosen.");
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("The default value is applied");
+                Console.WriteLine();
+            }
+        }
+
+        //Validation for the carrier method
+        private static void ValidCarrierTypeCheck(CarrierType carrierType)
+        {
+            if (!((int)carrierType > 4 || carrierType < 0))
+            {
+                Console.WriteLine($"The payment method {carrierType} was chosen.");
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("The default value is applied");
+                Console.WriteLine();
+            }
+        }
+
+        //Try catch for the payment method
+        private static int ValidatingNumberTypeInput()
+        {
+            bool success = false;
+            int input = -1;
+
+
+            //Checking if the user input is a number
+
+            while (success == false)
+            {
+                try
+                {
+                    input = int.Parse(Console.ReadLine().Trim());
+                    success = true;
+                }
+                catch (FormatException e)
+                {
+
+                    Console.WriteLine("Invalid input. Please type one of the option and press enter.");
+                   
+                    success = false;
+
+                }
+                catch (NullReferenceException e)
+                {
+                    
+                    Console.WriteLine("No input. The default value is applied");
+                    success = true;
+
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine("{0} Exception caught.", e);
+                    success = false;
+
+                }
+                finally
+                {
+                    Console.WriteLine("Your request is processed.");
+                }
+            }
+
+            return input;
+        }
+
+        //Messages to user
+        private static void ConfirmingAddress(EShopBasket basket, int paymentType, CarrierType carrierType, string address)
+        {
             var simpleEshop = new SimpleEshop();
             var success = simpleEshop.PayAndSendOrder(basket, paymentType, address, carrierType);
 
-            Console.Write("Is the address correct?  ");
+            Console.Write("Checking the address...");
+            Console.Write("Checking with the system...  ");
+            Console.WriteLine("Loading...  ");
+            Thread.Sleep(2000);
+
+            
+
+            Console.WriteLine("Is the address correct?  ");
             Console.WriteLine(success);
-            Console.WriteLine("Our next feature: Wou will soon receive a comfirmation email! Thank you for shopping with us!");
-            Console.WriteLine("Please press enter");
-         
-            Console.Read();
+            Console.WriteLine("Your order is complete!");
+            Console.WriteLine();
+            Console.WriteLine("Note that our future features you will be able to receive a comfirmation email with your order! \nThank you for shopping with us!");
+            Console.WriteLine();
         }
 
         private static void ProceedToPaymentUserMessage(decimal amount)

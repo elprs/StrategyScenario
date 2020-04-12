@@ -24,7 +24,7 @@ namespace StrategyAssignment
         {
             Console.WriteLine();
             Console.WriteLine("Hello, you have chosen this beautiful t-shirt. Its details are : ");
-            Console.WriteLine("Fabric : {0} , Size : {1}, Color : {2}", sampleTshirt.Fabric.ToString().ToLower(), sampleTshirt.Size.ToString().ToLower(), sampleTshirt.Color.ToString().ToLower());
+            Console.WriteLine("Fabric : {0} , Size : {1}, Color : {2}", sampleTshirt.Fabric.ToString().ToLower(), sampleTshirt.Size.ToString(), sampleTshirt.Color.ToString().ToLower());
             Console.WriteLine();
         }
 

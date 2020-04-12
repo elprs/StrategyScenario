@@ -35,7 +35,9 @@ namespace StrategyAssignment
 
             // Wait for user
 
-            Console.ReadKey();
+            Console.WriteLine("Please press enter to continue");
+
+            Console.Read();
 
         }
     }

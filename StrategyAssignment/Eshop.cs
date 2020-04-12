@@ -15,7 +15,6 @@ namespace StrategyPatternSample
 
         public static void EShopDemo(decimal amount)
         {
-            
             var basket = new EShopBasket();
             
             basket.SetDueAmount(amount);
@@ -84,8 +83,6 @@ namespace StrategyPatternSample
             return success;
         }
     }
-
-   
 }
 
 

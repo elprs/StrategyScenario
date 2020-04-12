@@ -6,7 +6,14 @@ namespace StrategyAssignment
 {
     /// <summary>
     /// Entry point into console application.
-    /// Application's goal : Supposed that it has received an wish list of a t-shirt, is calculates its price according to some variations, and let the customer pay, depending on his/hers chosen method
+    /// 
+    /// Application's goal : 
+    /// Supposed that a customer has a wish list of a t-shirt.
+    /// The system calculates the t-shirt price according to its variations, and lets the customer pay depending on his/hers chosen payment method.
+    /// 
+    /// Eleni Parisi
+    /// Stategy pattern istructor: Kostas Stroggylos
+    /// 
     /// </summary>
 
     class Program
@@ -31,11 +38,5 @@ namespace StrategyAssignment
             Console.ReadKey();
 
         }
-
-       
-
     }
-
-
-
 }

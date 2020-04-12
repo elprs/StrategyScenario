@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StrategyAssignment
 {
@@ -32,11 +28,9 @@ namespace StrategyAssignment
             Console.WriteLine();
         }
 
-
         //Calculating the total cost of a T-shirt
-        //Question to you, Teacher: Is it ok for this method to exist here? Where would you place it as a "best practise"? 
-        //Would it better to be placed somewhere where it could remain Private? If so, where?
-        // Also, how can this method be written in order to DRY? With a foreach, perhaps? If so, how could i bring all the variations in a list?
+        //Questions for you, Teacher, and also to myself: Is it ok for this method to exist here? Where would you place it as a "best practise"? 
+        //How can this method be written in order to DRY? With a foreach, perhaps? If so, how could i bring all the variations in a list?
 
         private static decimal CalculateCost(TShirt tshirt)
         {
@@ -61,7 +55,6 @@ namespace StrategyAssignment
             Console.WriteLine("Cost after the  {1} variation is : {0:c}", tshirt.Price, tshirt.Fabric.GetType().Name);
             Console.WriteLine();
             Console.WriteLine();
-
 
             return tshirt.Price;
         }

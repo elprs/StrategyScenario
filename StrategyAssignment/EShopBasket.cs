@@ -22,9 +22,5 @@ namespace StrategyPatternSample
         {
             return _paymentMethod.Pay(_dueAmount);
         }
-
-
-        
     }
-
 }

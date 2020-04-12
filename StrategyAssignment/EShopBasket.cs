@@ -1,4 +1,7 @@
-﻿namespace StrategyPatternSample
+﻿using StrategyAssignment;
+using System;
+
+namespace StrategyPatternSample
 {
     class EShopBasket
     {
@@ -19,6 +22,9 @@
         {
             return _paymentMethod.Pay(_dueAmount);
         }
-    }
-}
 
+
+        
+    }
+
+}

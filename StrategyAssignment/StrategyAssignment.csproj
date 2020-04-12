@@ -46,8 +46,11 @@
     <Compile Include="Eshop.cs" />
     <Compile Include="EShopBasket.cs" />
     <Compile Include="PaymentMethod.cs" />
+    <Compile Include="Payments.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shipment.cs" />
+    <Compile Include="TotalTshirtCost.cs" />
     <Compile Include="TShirt.cs" />
     <Compile Include="Variation.cs" />
   </ItemGroup>

@@ -63,4 +63,25 @@ namespace StrategyPatternSample
         }
     }
 
+    //The 'PaymentMethodProceeds' class
+
+
+    class PaymentMethodPay
+
+    {
+        private PaymentMethod _paymentMethod;
+
+        // Constructor
+
+        public PaymentMethodPay(PaymentMethod paymentMethod)
+        {
+            this._paymentMethod = paymentMethod;
+        }
+
+        public void PaymentProceeds(decimal amount)
+        {
+            _paymentMethod.Pay(amount);
+        }
+    }
+
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace StrategyAssignment
 {
@@ -99,7 +100,7 @@ namespace StrategyAssignment
     }
 
 
-    // Calculates the variation cost
+    //The variation Cost class
     class VariationCost
 
     {
@@ -112,16 +113,14 @@ namespace StrategyAssignment
             this._variation = variation;
         }
 
-        public void CalculateCostOf(TShirt tshirt)
+        // Calculates the variation cost
+        public void CalculateCostVariation(TShirt tshirt)
         {
             _variation.Cost(tshirt);
         }
 
 
     }
-
-
-   
 
 
 

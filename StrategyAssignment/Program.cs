@@ -10,6 +10,7 @@ namespace StrategyAssignment
     /// <summary>
 
     /// Entry point into console application.
+    /// Application's goal : Supposed that it has received an wish list of a t-shirt, is calculates its price according to some variations, and let the customer pay, depending on his/hers chosen method
 
     /// </summary>
     
@@ -21,49 +22,41 @@ namespace StrategyAssignment
 
 
             Eshop myEShop = new Eshop();
-
-            // Suggest a T-shirt to the customer
-
-            Console.WriteLine("Hello, let us recomment you this beautiful t-shirt. Its details are:\n fabric : {0} , size : {1}, color : {2}", Fabric.CASHMERE.ToString().ToLower(), Size.L.ToString().ToLower(), Color.BLUE.ToString().ToLower());
-
-
             TShirt sampleTshirt = new TShirt(Color.BLUE, Size.L, Fabric.CASHMERE);
-            
-            // Calculating the price of the suggested item
 
-            TShirt.CalculatingTotalTshirtCost(sampleTshirt);
-            Console.WriteLine($"The total cost is {sampleTshirt.Price} Euro. Would you like to buy it now?");
+            // Suppose a customer added a T-shirt to his wish list
+
+            Console.WriteLine("Hello, you have chosen this beautiful t-shirt. Its details are:\n fabric : {0} , size : {1}, color : {2}", Fabric.CASHMERE.ToString().ToLower(), Size.L.ToString().ToLower(), Color.BLUE.ToString().ToLower());
+            Console.WriteLine();
+
+            //calculate the price of the tshirt
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("An authorized user sees these details: ");
+            var amount = TotalTshirtCost.CalculateCost(sampleTshirt);
+            Console.ForegroundColor = ConsoleColor.White;
+
+
+            //Proceed to payment
+
+            Console.WriteLine($"The total cost is {amount} Euro. Would you like to buy it now?");
             Console.WriteLine("------------");
             Console.WriteLine("| SHOP NOW |");
             Console.WriteLine("------------");
-
-            Console.WriteLine("Let's proceed to the payment. ");
-
-            Console.WriteLine("Choose your prefered payment method");
-
-
-            //TODO Pay Shirt ... 3 pay options ++++++++++++++++++++++++ 
-
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("We are proceeding to payment. ");
+            Console.WriteLine();
+            Console.WriteLine("Choose your prefered payment method.");
+            Console.WriteLine();
 
 
+            //Pay and type your shipment details
+            Eshop.EShopDemo(amount);
+           
             // Wait for user
 
             Console.ReadKey();
 
-
-
-          
-
-            //Console.WriteLine("Please, create your own t-shirt");
-            //TShirt customerTshirt;
-            //Console.WriteLine("Choose a size: 1 = XS,2 = S, 3 = M, 4 = L, 5 = XL, 6 = XXL, 7 = XXXL");
-            //string sizeChoice;  // add nullable option ++
-            //sizeChoice = Console.ReadLine();
-
-          
-
-            //myEShop.PayTShirt(customerTshirt);
-            Console.Read();
         }
 
 
